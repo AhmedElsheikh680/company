@@ -56,4 +56,7 @@ public class EmployeeService {
     public Employee getEmployee(int id) {
         return employeeRepo.findById(id).get();
     }
+    public void deleteEmployee(int id) {
+        employeeRepo.deleteById(id);
+    }
 }
