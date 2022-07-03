@@ -24,7 +24,6 @@ public class EmployeeService {
         } else {
             throw new Exception("Duplicated Code "+ employee.getCode());
         }
-
     }
     public Employee updateEmployee(Employee employee) throws Exception {
         Employee currentEmployee = this.employeeRepo.findById(employee.getId()).get();
@@ -32,18 +31,12 @@ public class EmployeeService {
             return employeeRepo.save(employee);
 
         }
-
         Employee alreadyExist = this.employeeRepo.findByCode(employee.getCode());
-//            System.out.println("Code Already EXIST " + alreadyExist.getCode());
-//            System.out.println("Employee " + employee.getCode());
         if (null == alreadyExist) {
-//                System.out.println("Saved!!!!!!");
             return employeeRepo.save(employee);
         } else {
             throw new Exception("Duplicated Code " + employee.getCode());
         }
-
-
     }
     public Employee commit(Employee employee) throws Exception {
         if(employee.getId() ==0){

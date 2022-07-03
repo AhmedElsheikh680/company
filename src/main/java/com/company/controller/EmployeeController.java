@@ -17,6 +17,11 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @GetMapping("")
+    public String showHomePage() {
+        return "index";
+    }
+
     @GetMapping("/emps")
     public String employess(Model model) {
         model.addAttribute("employees", employeeService.getAllEmps());
