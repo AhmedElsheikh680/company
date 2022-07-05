@@ -23,7 +23,6 @@ public class Employee {
 
     @Column(name = "name")
     @NotEmpty(message = "Name Cannot Be Empty")
-    @Size(min = 3, max = 10)
     private String name;
 
     @Column(name = "code")
