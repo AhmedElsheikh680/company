@@ -14,16 +14,15 @@
     </style>
 </head>
 <body>
-<h1>Add Employee</h1>
+<h1>Update Employee</h1>
 <div class="container form">
-    <form th:action="@{/save-employee}" th:object="${employee}" method="post" >
-        <input th:field="*{id}" type="hidden" />
+    <form th:action="@{/update-employee/{id}(id=${employee.id})}" th:object="${employee}" method="post" >
+<!--        <input th:field="*{id}" type="hidden" />-->
         <div class="input-group mb-3 ">
             <div class="input-group-prepend">
                 <span class="input-group-text">@</span>
             </div>
             <input th:field="*{name}" type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1">
-
         </div>
         <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger error">
             Invalid Name</div>
@@ -43,8 +42,7 @@
         </div>
         <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="alert alert-danger error">
             Invalid Address</div>
-
-        <button type="submit" class="btn btn-success">Add</button>
+        <button type="submit" class="btn btn-success">Update</button>
     </form>
 
 </div>
